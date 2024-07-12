@@ -1,0 +1,442 @@
+@charset "UTF-8";
+/* reset */
+body, h1, h2, h3, h4, h5, h6, p, address,
+ul, ol, li, dl, dt, dd, img, form, table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	text-align: left;
+	list-style-type: none;
+	border-collapse: collapse;
+}
+
+@import url("css/bootstrap-grid.min.css");
+
+
+
+textarea { font-size: 100%; vertical-align:middle;}
+img { border-style: none; display: block; }
+hr { display: none; }
+em{font-style: normal}
+input{line-height:auto;vertical-align:middle;}
+strong.more{color:#c30}
+a{text-decoration: none;}
+
+
+body {
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.menu-icon {
+	display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+		right: 0;
+		font-size: 25px;
+		z-index: 10000;
+		cursor: pointer; /* カーソルをポインターに変更 */
+    }
+}
+
+
+header {
+	display: flex;
+	justify-content: right;
+	background-color:lightgrey;
+	height: 35px;
+	width: 100%;
+}
+
+header.toggled {
+    height: 170px; /* トグルされた状態の高さを適切に設定してください */
+}
+
+
+
+.navbar {
+	display: flex; /* PC用の場合は flex で表示 */
+	position: absolute;
+	right: 0;
+	gap: 10px;
+	background-color:lightgrey;
+}
+
+@media (max-width: 768px) {
+    .navbar{
+		display: none; /* 最初は非表示にする */
+    }
+}
+    
+
+.navbar.active {
+	display: flex; /* 最初は非表示にする */
+	position: absolute;
+	left: 0;
+	top: 50px;
+	padding-top: 10px;
+	width: 100%;
+	background-color: lightgray;
+	z-index: 100;
+	flex-direction: column;
+}
+
+
+
+.navbar li {
+    margin-right: 20px; /* 各リストアイテムの右側に10pxの間隔を設定 */
+}
+
+
+
+.left-top{
+	position: absolute;
+	left: 10px;
+	color: black;
+	font-size: 28px;
+	z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .left-top{
+		position: absolute;
+		left: 10px;
+		color: black;
+		font-size: 28px;
+		z-index: 10;
+	}
+}
+
+.search-form {
+	display: flex;
+	align-items: right;
+}
+
+.search-form input[type="text"]{
+	padding: 10px;
+	border: black;
+	border-radius: 4px;
+}
+
+.search-form input::placeholder{
+     color: darkgray;
+}
+
+
+.search-form button{
+	padding: 10px 15px;
+	border: none;
+	background-color: rgb(201, 199, 199);
+	color: black;
+	border-radius:  4px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.search-form button:hover{
+	background-color: #777777;
+}
+.navbar li:nth-child(1) a { color: black; }
+.navbar li:nth-child(2) a { color: #6e6d6d; } 
+.navbar li:nth-child(3) a { color: #6e6d6d; } 
+.navbar li:nth-child(4) a { color: #6e6d6d; } 
+
+
+.custom-progress-bar {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 5px; /* バーの高さ */
+	background-color: lightgray; /* バーの背景色 */
+  }
+
+.progress-bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0; /* バーの初期幅 */
+	background-color: darkgrey; /* バーの色 */
+  }
+
+.custom {
+	transform: translateY(-30px); 
+    background-color: transparent;
+}
+
+
+
+body {
+	background-color: #FFEFD5;
+  }
+.slider {
+	margin: 0px auto 0;
+	max-width: 1500px;
+	width: 100%;
+  }
+
+
+.slick-img {
+    max-width: 100%; /* 画像の幅を親要素（.slick-img）の100%に設定 */
+	width: 100%;
+    height: auto; /* 高さを自動調整してアスペクト比を保つ */
+}
+
+h1 {
+	font-size: 36px; /* 例: フォントサイズを36pxに設定 */
+	margin-top: -20px; /* 上部の余白を設定 */
+	text-align: center;
+}
+
+h2 {
+	font-size: 36px;
+	margin-top: 10px;
+
+}
+
+h3 {
+	font-size: 36px;
+	margin-top: 10px;
+}
+
+h4 {
+	font-size: 36px;
+	margin-top: 10px;
+}
+
+.orange-bg {
+	background-color: #FFC7AF;
+	position: relative;
+    text-align: center;
+	width: 800px;
+	margin: 0 auto;
+	width: 70%;
+}
+
+ul , h1 {
+	background-color: #FFEFD5;
+}
+
+ul {
+	transition: transform 0.3s ease-in-out; 
+	text-align: center;
+	position: relative;
+}
+
+.comment li {
+    padding-top: 10px; /* 各リストアイテム間の上側の間隔 */
+    padding-bottom: 10px; /* 各リストアイテム間の下側の間隔 */
+  }
+
+h5,h6,h7{
+	text-align: center;
+	position: relative;
+	font-size: 36px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	max-width: 500px;
+}
+
+.feature {
+	text-align: center;
+	position: relative;
+	font-size: 36px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	max-width: 500px;
+}
+
+.food-img {
+	width: 500px; /* 画像の幅を固定 */
+    height: 400px; /* 画像の高さを固定 */
+    overflow: hidden; /* オーバーフローした部分を隠す */
+}
+
+@media (max-width: 768px) {
+    .food-img {
+        width: 100%; /* 画像の横幅を100%にして、親要素に合わせる */
+        height: auto; /* 高さを自動調整 */
+    }
+}
+
+.food-text {
+	width: 410px;
+	margin-left: 60px; /* テキストと画像の間のマージン */
+	margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .food-text {
+        width: auto; /* 幅を自動調整 */
+        margin: 10px auto; /* 上下左右のマージンを自動で設定して中央に寄せる */
+    }
+}
+
+.food-img img{
+	width: 100%; /* 画像を親要素に合わせる */
+    height: auto; /* 高さを自動調整 */
+    object-fit: cover; /* 画像を親要素に合わせて切り取る */
+}
+
+
+.food {
+    display: flex; /* 要素を横並びに配置する */
+	position: relative;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
+@media (max-width: 768px) {
+    .food {
+        flex-direction: column; /* 縦方向に配置する */
+    }
+}
+	
+h8, h9{
+	position: relative;
+	font-size: 30px;
+	color: white;
+}
+
+
+.message-img {
+	width: 400px; /* 画像の幅を固定 */
+    height: 300px; /* 画像の高さを固定 */
+    overflow: hidden; /* オーバーフローした部分を隠す */
+	position: relative;
+	margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .message-img {
+        width: 100%; /* 画像の横幅を100%にして親要素に合わせる */
+        height: auto; /* 高さを自動調整 */
+    }
+}
+
+.message-img img{
+	width: 100%; /* 画像を親要素に合わせる */
+    height: auto; /* 高さを自動調整 */
+    object-fit: cover; /* 画像を親要素に合わせて切り取る */
+	z-index: 100px;
+}
+
+.message {
+	max-width: 100%;
+	width: 65%;
+	height: auto;
+	display: flex; /* 要素を横並びに配置する */
+	justify-content: center;
+	margin: 0 auto;
+	background-color: black;
+	flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .message {
+        flex-direction: column-reverse; 
+        width: 100%; /* 幅を100%にして親要素に合わせる */
+    }
+}
+
+.message-content h8, h9{
+	margin-top: 20px;
+}
+
+.message-content li {
+	position: relative;
+	margin-bottom: 15px;
+	color: white;
+	margin-right: 40px;
+}
+
+.message-content {
+	margin-top: 40px;
+	color: white
+}
+
+.sasisuseso {
+    text-align: center;
+	position: relative;
+	margin: 0 auto;
+}
+
+.photos {
+    display: flex;
+    justify-content: space-around; /* 写真を等間隔で配置 */
+    max-width: 800px; /* 最大幅を設定 */
+    margin: 0 auto; /* 中央揃え */
+}
+
+@media (max-width: 768px) { /* 例として768px以下の場合に非表示にする */
+    .photos {
+        display: none;
+    }
+}
+
+.photo {
+    text-align: center;
+	position: relative; /* 相対位置指定 */
+}
+
+.photo-circle {
+    width: 150px; /* 円形の直径 */
+    height: 150px; /* 円形の直径 */
+    border-radius: 50%; /* 円形にするための丸み */
+    overflow: hidden; /* 不要な部分を隠す */
+	position: relative;
+    margin-bottom: 10px; /* 写真と住所の間のスペース */
+}
+
+.photo-circle img {
+    width: 100%; /* 写真を円形に合わせる */
+    height: 100%; /* 高さを自動調整 */
+	border-radius:50%;
+	display:block;
+    object-fit: cover; /* 画像を中央に配置し、親要素に収まるように */
+}
+
+.photo p {
+    margin: 0; /* 住所と写真の間のスペース */
+	font-size: 13px;
+	margin-right: 40px;
+	white-space: nowrap; 
+}
+
+.aiueo {
+	font-size: 13px;
+	margin-top: 10px;
+	display: flex; /* 要素を横並びに配置する */
+	position: relative;
+	justify-content: center; /* 横方向の中央揃え */
+}
+
+.aiueo li {
+    margin-right: 15px;
+	margin-top: 30px;
+}
+
+
+footer {
+	background-color: darkgray;;
+	max-width: 1500px;
+	width: 1500px;
+	height: 100px;
+	margin-top: 20px;
+	width: 100%;
+}
+

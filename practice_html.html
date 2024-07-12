@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My website</title>
+    <link href="base.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet" />
+    <link href="css/slick-theme.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+
+<body>
+
+  <header>
+    <div class="left-top">Casteria</div>
+    <div class="menu-icon" onclick="toggleMenu()">
+      &#9776;
+    </div>
+    <ul class="navbar" id="nav-links">   
+        <li class="room"><a href="#home">Home</a></li>
+        <li class="room"><a href="#food">Food</a></li>
+        <li class="room"><a href="#drink">Drink</a></li>
+        <li class="room"><a href="#お問合せ">お問合せ</a></li>
+        <li>
+            <form class="search-form" action="/search" method="get">
+                <input type="text" name="query" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+        </li>
+    </ul>
+  </header>
+    <div class="container">
+        <div class="slider">
+          <div class="slick-img">
+            <img
+              src="img/restaurant.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slick-img">
+            <img
+              src="img/food.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slick-img">
+            <img
+              src="img/food2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slick-img">
+            <img
+              src="img/interior.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="custom">
+        <div class="custom-dots-container">
+          <div class="custom-dots"></div> <!-- 〇（丸）のページネーション -->
+        <div class="custom-progress-bar">
+          <div class="progress-bar"></div> <!-- プログレスバー -->
+        </div>
+      </div>
+    
+    
+        
+
+    <script>
+       $(document).ready(function() {
+        function adjustNavbar() { 
+          if ($(window).width() <= 768) {
+              $(".menu-icon").click(function() {
+                  $("#nav-links").toggleClass("active"); // ナビゲーションリンクを表示・非表示を切り替え
+                  $("header").toggleClass("toggled");
+              });
+          }  else {
+            $("#nav-links").removeClass("active");
+            $("header").removeClass("toggled"); // ヘッダーのクラスをリセットする
+          }
+        }
+          adjustNavbar();
+
+    // ウィンドウのリサイズ時に実行
+          $(window).resize(function() {
+              adjustNavbar();
+           });
+        });
+
+       
+       
+
+        $(function () {
+          $(".slider").slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            dots: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            arrows: true,
+            infinite: true,
+            centerMode: true, // 中央揃えモードを有効にする
+            centerPadding: '0', // 中央揃え時のパディング
+            responsive: [
+            {
+                breakpoint: 768, // 768px以下の場合の設定
+                settings: {
+                    slidesToShow: 1, // スマートフォンの場合は1枚ずつ表示
+                }
+            }
+           ]
+          });       
+
+
+  // スライダーのスライドが切り替わるたびにプログレスバーの位置を更新
+  $(".slider").on("beforeChange", function(event, slick, currentSlide, nextSlide) {
+    var slideWidth = 100 / slick.slideCount; // スライド1枚の幅の割合
+    var barWidth = (nextSlide + 1) * slideWidth + "%"; // 次のスライドまでのバーの長さ
+    $(".progress-bar").width(barWidth); // バーの長さを更新
+  });
+});
+
+        $(document).ready(function() {
+        $('.slick-img img').each(function() {
+          var imgWidth = $(this).width(); // 画像の元の幅を取得
+        var imgHeight = $(this).height();
+        $(this).css('height', '500px'); // 例：画像の高さを300pxに設定
+
+        $(this).css('width', '730px');
+           });
+        });
+    </script>
+
+    <h1>新型コロナウイルスに対する取り組みの最新情報をご案内</h1>
+    <ul>
+    <div class="orange-bg">
+    <h2>■衛生面に関して</h2>
+    <ul style="display: none;" class="comment">
+      <li>・マスクを着用しての接客</li>
+      <li>・出勤前の検温の徹底</li>
+      <li>・レジカウンターやドリンク受け渡し口頭への飛沫防止ガードの設置</li>
+      <li>・より頻度の高い手洗いの励行</li>
+      <li>・テーブルにお客様用の消毒用アルコールの設置</li>
+      <li>・従業員間の距離確保ため、休憩の研修時の客席利用 </li>
+    </ul>
+    <h3>■お客様へのご協力のお願い</h3>
+    <ul style="display: none;" class="comment">
+      <li>・店内では、飲食以外のマスク着用をお願いいたします</li>
+      <li>・入店時の手指の消毒にご協力ください</li>
+      <li>・レジに並ぶ際、目安を示すフロアステッカーに沿った列間隔の確保にご協力ください</li>
+      <li>・多数でお越しの際は、お1人がまとめてご注文願います(混雑時に入場制限する場合がございます)</li>
+      <li>・発熱や体調不良の際はご入店をお控えください</li>
+    </ul>
+    <h4>■サービスに関して</h4>
+    <ul style="display: none;" class="comment">
+      <li>・直接お渡しする商品の提供、金銭授受時にグローブの着用</li>
+      <li>・ドリンクやフードのサンプリング中止</li>
+      <li>・地域活動・イベントの中止</li>
+      <li>・混雑時間帯の客席の譲り合いへのご協力お願いの実施</li>
+      <li>・店内設置しているミルク、はちみつ、パウダー類の一時引き上げ</li>
+      <li>・混雑状況に応じたドライブスルーサービスの一時休止や店内客席利用の制限</li>
+    </div>
+    </ul>
+  </ul>
+    </div>
+    <script>
+      $(document).ready(function() {
+        // h2のクリック時の動作
+        $("h2").click(function() {
+          $(this).next("ul").slideToggle(); // 次のul要素を表示・非表示を切り替える
+        });
+        // h3のクリック時の動作
+        $("h3").click(function() {
+          $(this).next("ul").slideToggle(); // 次のul要素を表示・非表示を切り替える
+        });
+        // h4のクリック時の動作
+        $("h4").click(function() {
+          $(this).next("ul").slideToggle(); // 次のul要素を表示・非表示を切り替える
+        });
+      });
+    </script>
+    
+    <h5> Signature Food</h5>
+    <div class="food">
+    <div class="food-img"><img src="img/food.jpg" alt="画像1の説明"></div>
+    <div class="food-text"><p>サーモンは刺身やカルパッチョで食べるのが美味しいですが、リッチな気分になれるサーモンステーキがおすすめです。サーモンの美味しさを引き立てる２種のソースも絶品です！</p></div></div>
+    <h6> Our Coffee</h6>
+    <div class="food">
+    <div class="food-img"><img src="img/barista.jpg" alt="画像2の説明"></div>
+    <div class="food-text"><p>当店のコーヒー豆が激戦して世界中から買い付けています。そして、そのコーヒー豆のおいしさを最大限に引き出すために自社のロースタリーで焙煎しています。</p></div></div>
+    <h6 class="feature"> Our Food</h6> 
+    <div class="food">
+    <div class="food-img"><img src="img/food3.jpg" alt="画像3の説明"></div>
+    <dic class="food-text"><p>当店は何よりまずは衛星管理に気をつけています。『安心・安全』をお届けするために日々継続的な努力を惜しみません。</p></dic></div>
+    
+    <div class="message">
+    <div class="message-img"><img src="img/barista.jpg" alt="画像1"></div>
+    <div class="message-content">
+    <h8>Address</h8>
+    <li>681 xxx Drive, xxxxx xxxx #01-06 000000</li>
+        <li>Opening Hours</li>
+    
+    <h9>Mondays-Friday:10am-9pm</h9>
+    <li>Saturdays, Sundays & Public Holidays: 9am - 9pm</li>
+    </div>
+    </div>
+
+    
+    <h6 class="sasisuseso">店舗一覧</h6>
+
+
+    <div class="photos">
+      <div class="photo">
+          <div class="photo-circle">
+          <img src="img/restaurant2.jpg" alt="写真1">
+          </div>
+          <p>📍東京都渋谷区xxxxxx xxxxx</p>
+      </div>
+      <div class="photo">
+          <div class="photo-circle">
+              <img src="img/restaurant3.jpg" alt="写真2">
+          </div>
+          <p>📍千葉県松戸市xxxxxx xxxxx</p>
+      </div>
+      <div class="photo">
+          <div class="photo-circle">
+              <img src="img/restaurant4.jpg" alt="写真3">
+          </div>
+          <p>📍神奈川県横浜市xxxxxx xxxxx</p>
+      </div>
+      <div class="photo">
+          <div class="photo-circle">
+              <img src="img/restaurant5.jpg" alt="写真4">
+          </div>
+          <p>📍埼玉県川越市xxxxxx xxxxx</p>
+      </div>
+    </div>
+</div>
+  
+    <footer>
+    <div class="aiueo">
+      <li>プライバシーポリシー</li>
+      <li>お問合せ</li>
+      <li>運営会社</li>
+    </div>
+    </div>
+    </footer>
+</body>
+</html>
